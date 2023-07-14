@@ -6,10 +6,7 @@ const NotificationBell = () => {
   const [notificationCount, setNotificationCount] = useState(0);
 
   const handleNotificationClick = () => {
-    // Implement the desired functionality when the bell icon is clicked
-    // For example, mark notifications as read or display a notification popup
-
-    // Update the notification count
+   
     setNotificationCount(notificationCount + 1);
   };
 

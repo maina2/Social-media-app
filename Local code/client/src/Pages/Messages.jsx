@@ -11,7 +11,7 @@ const Messages = () => {
     { id: 2, name: "Jane Smith", image: you, online: false },
     { id: 3, name: "Mike Johnson", image: you, online: true },
     { id: 4, name: "Alice Williams", image: you, online: false },
-    // Add more contacts...
+    
   ];
 
   const handleContactClick = (contactId) => {
@@ -24,7 +24,7 @@ const Messages = () => {
 
   const handleSubmitMessage = () => {
     if (inputValue.trim() !== '') {
-      // Implement sending the message
+      
       setInputValue('');
     }
   };

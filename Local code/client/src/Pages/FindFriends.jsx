@@ -9,7 +9,7 @@ const FindFriends = () => {
     { id: 3, name: 'Mike Johnson', image: {wallpaper}, following: false, description: 'Fitness enthusiast and outdoor adventurer' },
     { id: 4, name: 'Emily Brown', image: {wallpaper}, following: false, description: 'Bookworm and coffee addict' },
     { id: 5, name: 'Alex Wilson', image: {wallpaper}, following: false, description: 'Tech geek and gaming enthusiast' },
-    // Add more users...
+    
   ]);
 
   const handleFollowUser = (userId) => {

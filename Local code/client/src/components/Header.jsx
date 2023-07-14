@@ -9,7 +9,7 @@ import NotificationBell from './NotificationBell';
 const Header = () => {
 
   return (
-    <div className="header">
+    <div className="header-main">
       <div className="logo">
         <img src={chat} alt="" />
       </div>
