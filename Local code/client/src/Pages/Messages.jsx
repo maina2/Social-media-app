@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './Messages.css';
+import './messages.css';
 import you from '../Assets/peakpx (15).jpg'
 
 const Messages = () => {
