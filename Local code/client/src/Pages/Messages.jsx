@@ -1,15 +1,16 @@
-import  { useState } from "react";
+import { useState } from "react";
 import './Messages.css';
+import you from '../Assets/peakpx (15).jpg'
 
 const Messages = () => {
   const [selectedContact, setSelectedContact] = useState(null);
   const [inputValue, setInputValue] = useState('');
 
   const contacts = [
-    { id: 1, name: "John Doe", image: "path-to-image", online: true },
-    { id: 2, name: "Jane Smith", image: "path-to-image", online: false },
-    { id: 3, name: "Mike Johnson", image: "path-to-image", online: true },
-    { id: 4, name: "Alice Williams", image: "path-to-image", online: false },
+    { id: 1, name: "John Doe", image: you, online: true },
+    { id: 2, name: "Jane Smith", image: you, online: false },
+    { id: 3, name: "Mike Johnson", image: you, online: true },
+    { id: 4, name: "Alice Williams", image: you, online: false },
     // Add more contacts...
   ];
 
@@ -37,7 +38,9 @@ const Messages = () => {
             className={`contact ${selectedContact === contact.id ? "selected" : ""}`}
             onClick={() => handleContactClick(contact.id)}
           >
-            <div className="profile" />
+            <div className="profile">
+              <img src={contact.image} alt={contact.name} />
+            </div>
             <div className="contact-info">
               <h2>{contact.name}</h2>
               <p>{contact.online ? "Online" : "Offline"}</p>
@@ -49,7 +52,9 @@ const Messages = () => {
         {selectedContact ? (
           <div className="conversation">
             <div className="conversation-header">
-              <div className="profile" />
+              <div className="profile">
+                <img src={contacts[selectedContact - 1].image} alt={contacts[selectedContact - 1].name} />
+              </div>
               <div className="contact-info">
                 <h2>{contacts[selectedContact - 1].name}</h2>
                 <p>{contacts[selectedContact - 1].online ? "Online" : "Offline"}</p>
