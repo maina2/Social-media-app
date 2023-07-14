@@ -1,4 +1,5 @@
 import './profile.css';
+import wallpaper from '../Assets/peakpx (6).jpg'
 
 const Profile = () => {
   const user = {
@@ -6,7 +7,7 @@ const Profile = () => {
     bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nulla at turpis vehicula interdum.',
     followers: 500,
     following: 300,
-    profileImage: 'path-to-image',
+    profileImage: wallpaper,
   };
 
   return (
