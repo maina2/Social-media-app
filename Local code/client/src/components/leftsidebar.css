@@ -1,0 +1,68 @@
+.left-sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  padding: 10px;
+  position: relative;
+  padding-top: 2rem;
+  flex: 0 0 250px; 
+  background-color: #f1f1f1;
+}
+.left-sidebar span {
+  font-family: 'Preahvihear', sans-serif;
+  font-size: 13px;
+}
+
+.profile-image > img{
+  height: 50px;
+  width: 50px;
+  background-color: #ccc; /* Replace with your desired background */
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background-size: cover;
+  margin-left: .1rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #eaeaea;
+}
+
+.sidebar-link svg {
+  margin-right: 10px;
+}
+
+.minimized {
+  width: 60px;
+}
+
+.minimized .sidebar-link span {
+  display: none;
+}
+
+.minimized .sidebar-link svg {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+.separator {
+  height: 1px;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+
+.logout-link {
+  margin-top: auto;
+}
+

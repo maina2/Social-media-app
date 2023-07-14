@@ -1,0 +1,88 @@
+.right-sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    padding: 10px;
+    width: 20rem;
+    flex: 0 0 250px; 
+
+  }
+  
+  .frame {
+    margin-bottom: 20px;
+  }
+
+  .contacts{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+  }
+  .people-you-may-know{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+
+  }
+  
+  .frame-header {
+    font-weight: lighter;
+    margin-bottom: 10px;
+  }
+ .right-sidebar h3{
+  font-family: 'Preahvihear', sans-serif;
+  font-size: 15px;
+  color: #FF5A60;
+  }
+
+  .user{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .user-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .user-info {
+    flex: 1;
+    font-family: 'Preahvihear', sans-serif;
+    font-size: 11px;
+  }
+  
+  .user-name {
+    font-weight: bold;
+  }
+  
+  .user-description {
+    color: #777;
+  }
+  
+  .contact-card {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-name {
+    font-weight: bold;
+  }
+  
+  .contact-description {
+    color: #777;
+  }
+  
