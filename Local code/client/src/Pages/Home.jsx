@@ -1,11 +1,26 @@
 import { useState } from 'react';
-import './home.css'; 
-import { PiPencilSimpleLineDuotone } from 'react-icons/pi'
-import { HiOutlinePhoto } from 'react-icons/hi2'
+import { PiPencilSimpleLineDuotone } from 'react-icons/pi';
+import { HiOutlinePhoto } from 'react-icons/hi2';
 import { FaHeart, FaComment } from 'react-icons/fa';
+import homephoto from '../Assets/peakpx (15).jpg';
+import './home.css';
 
 const Home = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([
+    {
+      text: 'Nature is always beautiful',
+      likes: 5,
+      comments: ['Cool post!', 'Great picture!'],
+      image: { homephoto },
+    },
+    {
+      text: 'Nature is always beautiful',
+      likes: 10,
+      comments: ['Awesome!', 'Nice shot!'],
+      image: { homephoto },
+    },
+  ]);
+
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (event) => {
@@ -14,7 +29,7 @@ const Home = () => {
 
   const handleSubmitPost = () => {
     if (inputValue.trim() !== '') {
-      setPosts([...posts, { text: inputValue, likes: 0, comments: [] }]);
+      setPosts([...posts, { text: inputValue, likes: 0, comments: [], image: null }]);
       setInputValue('');
     }
   };
@@ -67,7 +82,12 @@ const Home = () => {
         {posts.map((post, index) => (
           <div key={index} className="post-item">
             <div className="post-content">
+              <div className="user-info">
+                <img src={homephoto} alt="User" className="user-avatar" />
+                <h3 className="user-name">Username</h3>
+              </div>
               <p>{post.text}</p>
+              {post.image && <img src={homephoto} alt="Post" />}
               <div className="post-actions">
                 <div className="action" onClick={() => handleLikePost(index)}>
                   <FaHeart />

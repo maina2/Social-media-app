@@ -13,10 +13,12 @@ const Header = () => {
       <div className="logo">
         <img src={chat} alt="" />
       </div>
+      <p className='logo-name'>Radians</p>
+
       <div className="search-bar">
       <SearchBar />
       </div>
-      <div className="user-profile">
+      <div className="user-profile-header">
         <img src={profile} alt="P" className="profile-picture" />
         <span className="user-name">John Doe</span>
       </div>

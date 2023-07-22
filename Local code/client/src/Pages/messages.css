@@ -1,8 +1,7 @@
-
-*{
+* {
   font-family: 'Preahvihear', sans-serif;
-
 }
+
 .messages-container {
   display: flex;
   align-items: stretch;
@@ -10,11 +9,12 @@
 }
 
 .contacts {
+  flex-grow: 1; /* Fill available space */
   width: 250px;
   background-color: #f4f4f4;
   padding: 20px;
-  overflow-y: auto;
 }
+
 .messages {
   display: flex;
   flex-direction: column;
@@ -24,7 +24,6 @@
   scroll-behavior: smooth;
   flex-grow: 1;
 }
-
 
 .contact {
   display: flex;
@@ -94,11 +93,12 @@
   border-radius: 50%;
   margin-right: 10px;
 }
-img{
-  width: 40px;
-  height: 40px;
+.contact .profile img,
+.profile img {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  margin-right: 10px;
+  object-fit: cover;
 }
 
 .contact-info {
@@ -159,7 +159,7 @@ img{
 }
 
 .input-area button {
-  padding: 10px 20px;
+  padding: 8px 15px; /* Adjusted size for the button */
   border-radius: 5px;
   border: none;
   background-color: #007bff;

@@ -1,21 +1,22 @@
-import { useState } from "react";
-import './messages.css';
-import you from '../Assets/peakpx (15).jpg'
+import React, { useState } from "react";
+import "./messages.css";
+import you from "../Assets/peakpx (15).jpg";
 
 const Messages = () => {
   const [selectedContact, setSelectedContact] = useState(null);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
+  const [messages, setMessages] = useState([]);
 
   const contacts = [
     { id: 1, name: "John Doe", image: you, online: true },
     { id: 2, name: "Jane Smith", image: you, online: false },
     { id: 3, name: "Mike Johnson", image: you, online: true },
     { id: 4, name: "Alice Williams", image: you, online: false },
-    
   ];
 
   const handleContactClick = (contactId) => {
     setSelectedContact(contactId);
+    setMessages([]); // Clear the messages when a new contact is selected
   };
 
   const handleInputChange = (event) => {
@@ -23,9 +24,13 @@ const Messages = () => {
   };
 
   const handleSubmitMessage = () => {
-    if (inputValue.trim() !== '') {
-      
-      setInputValue('');
+    if (inputValue.trim() !== "") {
+      const newMessage = {
+        text: inputValue,
+        sender: "You", // Set the sender as "You" for the sake of example
+      };
+      setMessages([...messages, newMessage]);
+      setInputValue("");
     }
   };
 
@@ -62,7 +67,11 @@ const Messages = () => {
             </div>
             <div className="chat-area">
               <div className="messages">
-                {/* Display the chat messages here */}
+                {messages.map((message, index) => (
+                  <div key={index} className={`message ${message.sender === "You" ? "sent" : "received"}`}>
+                    <p>{message.text}</p>
+                  </div>
+                ))}
               </div>
               <div className="input-area">
                 <input
@@ -71,7 +80,9 @@ const Messages = () => {
                   value={inputValue}
                   onChange={handleInputChange}
                 />
-                <button onClick={handleSubmitMessage}>Send</button>
+                <button className="send-button" onClick={handleSubmitMessage}>
+                  Send
+                </button>
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@
    
   }
   
-  .user-profile {
+  .user-profile-header {
     display: flex;
     align-items: center;
     margin-right: 16px;
@@ -48,17 +48,27 @@
   }
   
   .user-name {
-    font-weight: bold;
+    font-weight: lighter;
+    font-size: 13px;
+    color: white;
   }
   
   .notification-bell {
     cursor: pointer;
     color: #333;
     font-size: 24px;
+    margin-right: 1.5rem;
   }
  .logo > img{
     height: 50px;
     width: 50px;
 
     
+  }
+  .logo-name {
+    color: white;
+    font-size: 18px;
+    font-family: 'Preahvihear', sans-serif;
+    margin-left: 1rem;
+
   }

@@ -1,4 +1,3 @@
-// import React from "react";
 import './rightsidebar.css';
 import image from '../Assets/peakpx (12).jpg'
 
@@ -35,7 +34,7 @@ const RightSidebar = () => {
       id: 2,
       name: "Xavi Hernandez",
       image: {image},
-      description: "A masterful passer and key figure in Barcelona's success",
+      description: "A masterful passer and key figure in Barcelona's ",
     },
     {
       id: 3,
@@ -53,7 +52,7 @@ const RightSidebar = () => {
         {peopleYouMayKnow.map((user) => (
           <div className="user" key={user.id}>
             <img src={image} alt={user.name} />
-            <div className="user-info">
+            <div className="user-info-side">
               <h4>{user.name}</h4>
               <p>{user.description}</p>
             </div>
@@ -65,7 +64,7 @@ const RightSidebar = () => {
         {contacts.map((user) => (
           <div className="user" key={user.id}>
             <img src={image} alt={user.name} />
-            <div className="user-info">
+            <div className="user-info-side">
               <h4>{user.name}</h4>
               <p>{user.description}</p>
             </div>

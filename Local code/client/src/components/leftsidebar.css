@@ -16,7 +16,8 @@
 .profile-image > img{
   height: 50px;
   width: 50px;
-  background-color: #ccc; /* Replace with your desired background */
+  object-fit: cover;
+  background-color: #ccc; 
   border-radius: 50%;
   margin-bottom: 10px;
   background-size: cover;
