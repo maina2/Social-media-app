@@ -53,7 +53,6 @@ const LeftSidebar = () => {
         <span>Profile</span>
       </Link>
 
-      {/* Add link to SignIn page */}
       {/* <Link
         to="/signin"
         className={`sidebar-link ${hideText ? 'hide-text' : ''}`}

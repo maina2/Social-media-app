@@ -1,18 +1,15 @@
-import React, { useEffect } from 'react';
+import  { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../AppContext'; // Import the AppContext
 
 const Logout = () => {
+  const { setIsLoggedIn } = useContext(AppContext); // Access setIsLoggedIn from the context
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Perform logout logic here
-
-    // For example, you can clear the user's authentication status from localStorage
-    localStorage.removeItem('user');
-
-    // After logging out, redirect to the Sign In page
+    setIsLoggedIn(false); // Update the isLoggedIn state using setIsLoggedIn
     navigate('/signin');
-  }, [navigate]);
+  }, [setIsLoggedIn, navigate]);
 
   return <div>Logging out...</div>;
 };

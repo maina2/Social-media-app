@@ -1,22 +1,43 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './findfriends.css';
 import wallpaper from '../Assets/peakpx (14).jpg';
 
 const FindFriends = () => {
-  const [users, setUsers] = useState([
-    { id: 1, name: 'John Doe', image: { wallpaper }, following: false, description: 'Passionate traveler and foodie' },
-    { id: 2, name: 'Jane Smith', image: { wallpaper }, following: false, description: 'Aspiring artist and music lover' },
-    { id: 3, name: 'Mike Johnson', image: { wallpaper }, following: false, description: 'Fitness enthusiast and outdoor adventurer' },
-    { id: 4, name: 'Emily Brown', image: { wallpaper }, following: false, description: 'Bookworm and coffee addict' },
-    { id: 5, name: 'Alex Wilson', image: { wallpaper }, following: false, description: 'Tech geek and gaming enthusiast' },
-  ]);
+  const [users, setUsers] = useState([]);
 
-  const handleFollowUser = (userId) => {
-    setUsers((prevUsers) =>
-      prevUsers.map((user) =>
-        user.id === userId ? { ...user, following: !user.following } : user
-      )
-    );
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get('http://localhost:8081/users');
+      setUsers(response.data);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+  };
+
+  const handleFollowUser = async (userId) => {
+    try {
+      // Determine the previous follow status of the user
+      const isFollowed = users.find((user) => user.id === userId).is_followed;
+
+      // Send the follow/unfollow request to the server based on the previous follow status
+      if (isFollowed) {
+        await axios.put(`http://localhost:8081/users/${userId}/unfollow`);
+      } else {
+        await axios.put(`http://localhost:8081/users/${userId}/follow`);
+      }
+
+      // Update the local state to reflect the change in follow status
+      setUsers((prevUsers) =>
+        prevUsers.map((user) => (user.id === userId ? { ...user, is_followed: !isFollowed } : user))
+      );
+    } catch (error) {
+      console.error('Error updating user:', error);
+    }
   };
 
   return (
@@ -25,13 +46,13 @@ const FindFriends = () => {
       <div className="users-list">
         {users.map((user) => (
           <div key={user.id} className="user-card-message">
-            <img src={wallpaper} alt={user.name} />
+            <img src={wallpaper} alt={user.username} />
             <div className="user-info-message">
-              <h2>{user.name}</h2>
-              <p>{user.description}</p>
+              <h2>{user.username}</h2>
+              <p>{user.bio}</p>
             </div>
             <button onClick={() => handleFollowUser(user.id)}>
-              {user.following ? 'Unfollow' : 'Follow'}
+              {user.is_followed ? 'Unfollow' : 'Follow'}
             </button>
           </div>
         ))}

@@ -8,8 +8,8 @@ export const followUser = async (req, res) => {
     const pool = await sql.connect(config.sql);
     await pool
       .request()
-      .input('followerId', sql.VarChar, followerId) // Use sql.VarChar for VARCHAR columns
-      .input('followeeId', sql.VarChar, followeeId) // Use sql.VarChar for VARCHAR columns
+      .input('followerId', sql.VarChar, followerId) 
+      .input('followeeId', sql.VarChar, followeeId) 
       .query('INSERT INTO Followers (follower_id, following_id) VALUES (@followerId, @followeeId)'); // Use correct column names
     res.status(201).json({ message: 'User followed successfully' });
   } catch (error) {
@@ -26,8 +26,8 @@ export const unfollowUser = async (req, res) => {
     const pool = await sql.connect(config.sql);
     await pool
       .request()
-      .input('followerId', sql.VarChar, followerId) // Use sql.VarChar for VARCHAR columns
-      .input('followeeId', sql.VarChar, followeeId) // Use sql.VarChar for VARCHAR columns
+      .input('followerId', sql.VarChar, followerId) 
+      .input('followeeId', sql.VarChar, followeeId) 
       .query('DELETE FROM Followers WHERE follower_id = @followerId AND following_id = @followeeId'); // Use correct column names
     res.status(200).json({ message: 'User unfollowed successfully' });
   } catch (error) {
@@ -44,8 +44,8 @@ export const getFollowers = async (req, res) => {
     const pool = await sql.connect(config.sql);
     const result = await pool
       .request()
-      .input('userId', sql.VarChar, userId) // Use sql.VarChar for VARCHAR columns
-      .query('SELECT * FROM Followers WHERE following_id = @userId'); // Use correct column names
+      .input('userId', sql.VarChar, userId) 
+      .query('SELECT * FROM Followers WHERE following_id = @userId'); 
     res.status(200).json(result.recordset);
   } catch (error) {
     res.status(500).json({ message: 'Error retrieving followers' });
@@ -61,8 +61,8 @@ export const getFollowing = async (req, res) => {
     const pool = await sql.connect(config.sql);
     const result = await pool
       .request()
-      .input('userId', sql.VarChar, userId) // Use sql.VarChar for VARCHAR columns
-      .query('SELECT * FROM Followers WHERE follower_id = @userId'); // Use correct column names
+      .input('userId', sql.VarChar, userId) 
+      .query('SELECT * FROM Followers WHERE follower_id = @userId'); 
     res.status(200).json(result.recordset);
   } catch (error) {
     res.status(500).json({ message: 'Error retrieving following' });

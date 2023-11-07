@@ -68,8 +68,20 @@ export const getFollowersAndFollowing = async (req, res) => {
     sql.close();
   }
 };
+export const getAllUsers = async (req, res) => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const result = await pool.request().query('SELECT * FROM Users'); // Fetch all users from the "Users" table
+    res.status(200).json(result.recordset);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving users' });
+  } finally {
+    sql.close();
+  }
+};
 
 export default {
+  getAllUsers,
   updateUser,
   deleteUser,
   getFollowersAndFollowing,

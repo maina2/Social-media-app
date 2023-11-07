@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import  { useContext } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import LeftSidebar from './components/Leftsidebar';
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import Home from './Pages/Home';
 import FindFriends from './Pages/FindFriends';
 import Messages from './Pages/Messages';
@@ -11,24 +11,12 @@ import RightSidebar from './components/Rightsidebar';
 import SignIn from './components/SignIn';
 import Register from './components/Registerpage';
 import Logout from './Pages/Logout';
+import { AppContext } from './AppContext'; // Import the AppContext
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    const user = localStorage.getItem('user');
-    return !!user;
-  });
+  const { isLoggedIn } = useContext(AppContext);
 
-  const handleSignInSuccess = () => {
-    setIsLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    // Clear the user's authentication status from localStorage
-    localStorage.removeItem('user');
-
-    // Update the isLoggedIn state to false
-    setIsLoggedIn(false);
-  };
+  console.log('isLoggedIn:', isLoggedIn);
 
   return (
     <Router>
@@ -38,16 +26,13 @@ const App = () => {
           {isLoggedIn && <LeftSidebar />}
           <div className="main-content">
             <Routes>
-              {/* Show the SignIn component at the root URL only if the user is not authenticated */}
-              <Route path="/" element={!isLoggedIn ? <SignIn handleSignInSuccess={handleSignInSuccess} /> : <Navigate to="/home" />} />
-              <Route path="/home" element={isLoggedIn ? <Home /> : <Navigate to="/" />} />
-              <Route path="/find-friends" element={isLoggedIn ? <FindFriends /> : <Navigate to="/" />} />
-              <Route path="/messages" element={isLoggedIn ? <Messages /> : <Navigate to="/" />} />
-              <Route path="/profile" element={isLoggedIn ? <Profile /> : <Navigate to="/" />} />
-              <Route path="/signin" element={!isLoggedIn ? <SignIn handleSignInSuccess={handleSignInSuccess} /> : <Navigate to="/home" />} />
+              <Route path="/" element={!isLoggedIn ? <SignIn /> : <Navigate to="/home" />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/find-friends" element={<FindFriends />} />
+              <Route path="/messages" element={<Messages />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/logout" element={<Logout handleLogout={handleLogout} />} />
-              {/* Add a catch-all route to redirect to the SignIn page if the user tries to access an unknown route */}
+              <Route path="/logout" element={<Logout />} />
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>

@@ -5,6 +5,7 @@
   justify-content: center;
 }
 
+/* Container for the post input and upload section */
 .post-input-container {
   margin-bottom: 20px;
   border: 1px solid black;
@@ -21,6 +22,7 @@ hr {
   margin-right: auto;
 }
 
+/* Container for the two post buttons */
 .post-picture {
   display: flex;
   flex-direction: row;
@@ -80,6 +82,20 @@ hr {
   margin-right: 10px;
 }
 
+/* Container for the image preview */
+.image-preview {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+/* Styling for the post images */
+.post-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
 .post-list {
   display: flex;
   flex-direction: column-reverse;
@@ -112,26 +128,23 @@ hr {
   gap: 10px;
   height: 60px;
   width: 60px;
-
 }
-.user-info h3{
+
+.user-info h3 {
   color: black;
-
-
 }
-.user-info img{
+
+.user-info img {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   object-fit: cover;
-
 }
 
 .user-avatar {
   width: 50px;
   object-fit: cover;
   border-radius: 50%;
-
 }
 
 .user-name {
@@ -165,7 +178,83 @@ hr {
 }
 
 .comment {
-  background-color: #f7f7f7;
-  padding: 5px;
+  display: flex;
+  align-items: center;
   margin-top: 5px;
+}
+
+.comment-avatar {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.comment-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-user {
+  font-size: 14px;
+  margin: 0;
+}
+
+.comment-text {
+  margin-top: 5px;
+}
+
+.comment-timestamp {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.image-preview {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 10px;
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Additional styles for comments */
+.comment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.comment-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #333;
+  font-size: 14px;
+}
+
+.comment-user {
+  font-weight: bold;
+}
+
+.comment-text {
+  margin: 0;
+}
+ .user-info > h3{
+  color: #4361EE;
+}
+.comment-content .comment-user{
+  color: #ee4361 ;
 }
